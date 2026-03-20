@@ -390,7 +390,7 @@
 <div class="left-panel">
   <img
     class="farm-img"
-    src="C:\Users\Bhavitra\Pictures\istockphoto-478690340-612x612.jpg"
+    src="https://images.unsplash.com/photo-1500076656116-558758c991c1?w=1200&q=85"
     alt="Golden wheat field at sunrise"
   />
   <div class="left-overlay"></div>
@@ -399,7 +399,7 @@
     <!-- Logo only at top -->
     <a href="index.html" class="logo">
       <div class="logo-mark">🌾</div>
-      <div class="logo-name">Ver<span>dora</span></div>
+      <div class="logo-name">Agro<span>Connect</span></div>
     </a>
 
     <!-- Tagline at bottom -->
@@ -408,7 +408,7 @@
       <div class="gold-bar"></div>
       <h2>Farm Fresh,<br/><em>Managed</em> with Care.</h2>
       <p>The platform that powers fair, direct trade between farmers and consumers across India.</p>
-      <a href="landing_page.html" class="back-link">← Back to homepage</a>
+      <a href="index.html" class="back-link">← Back to homepage</a>
     </div>
 
   </div>
@@ -548,7 +548,7 @@
     </div>
 
     <div class="form-footer">
-      Not an admin? <a href="landing_page.html">Back to homepage</a> · <a href="mailto:support@agroconnect.in">Contact support</a>
+      Not an admin? <a href="index.html">Back to homepage</a> · <a href="/cdn-cgi/l/email-protection#ec9f999c9c839e98ac8d8b9e838f838282898f98c28582">Contact support</a>
     </div>
     <div class="security-note">🔒 256-bit SSL encrypted · Session expires after 8 hours</div>
 
@@ -575,7 +575,10 @@
     if (autoHide) setTimeout(() => el.classList.remove('show'), 4000);
   }
   function hideBanner(id) { document.getElementById(id).classList.remove('show'); }
-  function showSuccess() { document.getElementById('successOverlay').classList.add('show'); }
+  function showSuccess() {
+    document.getElementById('successOverlay').classList.add('show');
+    setTimeout(() => { window.location.href = 'admin_dashboard.html'; }, 2000);
+  }
 
   /* ── Password ── */
   const pwPassEl = document.getElementById('pwPass');
@@ -721,6 +724,16 @@
     document.getElementById('otpContact').classList.remove('error');
     hideBanner('otpErr1');
   });
+
+  /* expose all onclick-used functions to global scope */
+  window.switchTab       = switchTab;
+  window.handlePassword  = handlePassword;
+  window.sendOtp         = sendOtp;
+  window.backToOtpStep1  = backToOtpStep1;
+  window.verifyOtp       = verifyOtp;
+  window.resendOtp       = resendOtp;
+  window.handleForgot    = handleForgot;
+  window.resetForgotForm = resetForgotForm;
 </script>
 </body>
 </html>

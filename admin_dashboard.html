@@ -351,11 +351,7 @@ tbody td{padding:11px 20px;font-size:.82rem;color:var(--td);vertical-align:middl
         <div class="kpi-val">₹32.1L</div><div class="kpi-lbl">Farmer Earnings</div>
         <div class="kpi-sub">Avg ₹2,574/farmer · <strong>paid within 24h</strong></div>
       </div>
-      <div class="kpi-card">
-        <div class="kpi-top"><div class="kpi-ico ico-g">🏪</div><div class="kpi-trend tr-up">↑ 4.5%</div></div>
-        <div class="kpi-val">₹16.5L</div><div class="kpi-lbl">Platform Profit</div>
-        <div class="kpi-sub">34% margin · <strong>commission model</strong></div>
-      </div>
+
       <div class="kpi-card">
         <div class="kpi-top"><div class="kpi-ico ico-gold">⭐</div><div class="kpi-trend tr-up">↑ 0.2</div></div>
         <div class="kpi-val">4.7/5</div><div class="kpi-lbl">Platform Rating</div>
@@ -372,7 +368,7 @@ tbody td{padding:11px 20px;font-size:.82rem;color:var(--td);vertical-align:middl
     <div class="row2 r2a">
       <div class="chart-card">
         <div class="ch-hdr">
-          <div><div class="ch-title">Revenue & Sales Trend</div><div class="ch-sub">Monthly market revenue vs farmer earnings vs platform profit</div></div>
+          <div><div class="ch-title">Revenue & Sales Trend</div><div class="ch-sub">Monthly market revenue vs farmer earnings</div></div>
           <div class="ch-filters">
             <button class="f-btn active" onclick="switchRevFilter(this,'6M')">6M</button>
             <button class="f-btn" onclick="switchRevFilter(this,'1Y')">1Y</button>
@@ -381,7 +377,7 @@ tbody td{padding:11px 20px;font-size:.82rem;color:var(--td);vertical-align:middl
         <div class="legend">
           <div class="leg-item"><div class="leg-dot" style="background:#43a047"></div>Market Revenue</div>
           <div class="leg-item"><div class="leg-dot" style="background:#f9a825"></div>Farmer Earnings</div>
-          <div class="leg-item"><div class="leg-dot" style="background:#1565c0"></div>Platform Profit</div>
+
         </div>
         <div style="position:relative;height:220px"><canvas id="revenueChart"></canvas></div>
       </div>
@@ -582,15 +578,14 @@ tbody td{padding:11px 20px;font-size:.82rem;color:var(--td);vertical-align:middl
     <div class="kpi-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:18px;">
       <div class="kpi-card"><div class="kpi-top"><div class="kpi-ico ico-g">💰</div><div class="kpi-trend tr-up">↑ 18%</div></div><div class="kpi-val">₹48.6L</div><div class="kpi-lbl">Total Revenue</div></div>
       <div class="kpi-card"><div class="kpi-top"><div class="kpi-ico ico-or">🌾</div><div class="kpi-trend tr-up">↑ 9%</div></div><div class="kpi-val">₹32.1L</div><div class="kpi-lbl">Farmer Payouts</div></div>
-      <div class="kpi-card"><div class="kpi-top"><div class="kpi-ico ico-bl">🏪</div><div class="kpi-trend tr-up">↑ 4%</div></div><div class="kpi-val">₹16.5L</div><div class="kpi-lbl">Platform Profit</div></div>
+      <div class="kpi-card"><div class="kpi-top"><div class="kpi-ico ico-bl">📦</div><div class="kpi-trend tr-up">↑ 22%</div></div><div class="kpi-val">3,842</div><div class="kpi-lbl">Total Orders</div></div>
     </div>
     <div class="row2 r2a">
       <div class="chart-card">
-        <div class="ch-hdr"><div><div class="ch-title">Revenue Trend (12 Months)</div><div class="ch-sub">Market revenue vs payouts vs profit</div></div></div>
+        <div class="ch-hdr"><div><div class="ch-title">Revenue Trend (12 Months)</div><div class="ch-sub">Market revenue vs farmer payouts</div></div></div>
         <div class="legend">
           <div class="leg-item"><div class="leg-dot" style="background:#43a047"></div>Revenue</div>
           <div class="leg-item"><div class="leg-dot" style="background:#f9a825"></div>Payouts</div>
-          <div class="leg-item"><div class="leg-dot" style="background:#1565c0"></div>Profit</div>
         </div>
         <div style="position:relative;height:240px"><canvas id="revDetailChart"></canvas></div>
       </div>
@@ -725,7 +720,6 @@ tbody td{padding:11px 20px;font-size:.82rem;color:var(--td);vertical-align:middl
       <div class="chart-card">
         <div class="ch-hdr"><div><div class="ch-title">Platform Settings</div></div></div>
         <div class="form-group"><label class="form-label">Platform Name</label><input class="form-ctrl" value="AgroConnect"/></div>
-        <div class="form-group"><label class="form-label">Commission Rate (%)</label><input class="form-ctrl" type="number" value="34"/></div>
         <div class="form-group"><label class="form-label">Free Delivery Threshold (₹)</label><input class="form-ctrl" type="number" value="499"/></div>
         <div class="form-group"><label class="form-label">Support Email</label><input class="form-ctrl" value="support@agroconnect.in"/></div>
         <button class="btn-save" onclick="showToast('Settings saved successfully!','success')">Save Changes</button>
@@ -1080,8 +1074,8 @@ function makeChart(id, cfg){ destroyChart(id); chartInstances[id]=new Chart(docu
    OVERVIEW CHARTS
 ═══════════════════════════════════════════════════════ */
 const revData = {
-  '6M':{ labels:['Oct','Nov','Dec','Jan','Feb','Mar'], rev:[32,36,41,38,44,48.6], earn:[21,24,27,25,29,32.1], profit:[11,12,14,13,15,16.5] },
-  '1Y':{ labels:['Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar'], rev:[24,27,30,28,32,35,36,40,44,40,44,48.6], earn:[15,18,20,18,21,23,24,26,29,27,30,32.1], profit:[9,9,10,10,11,12,12,14,15,13,14,16.5] }
+  '6M':{ labels:['Oct','Nov','Dec','Jan','Feb','Mar'], rev:[32,36,41,38,44,48.6], earn:[21,24,27,25,29,32.1] },
+  '1Y':{ labels:['Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar'], rev:[24,27,30,28,32,35,36,40,44,40,44,48.6], earn:[15,18,20,18,21,23,24,26,29,27,30,32.1] }
 };
 let revFilter='6M';
 function switchRevFilter(btn, f){
@@ -1096,7 +1090,6 @@ function updateRevenueChart(){
   c.data.labels=d.labels;
   c.data.datasets[0].data=d.rev;
   c.data.datasets[1].data=d.earn;
-  c.data.datasets[2].data=d.profit;
   c.update();
 }
 
@@ -1108,8 +1101,7 @@ function initOverviewCharts(){
     type:'line',
     data:{ labels:d.labels, datasets:[
       {label:'Revenue',data:d.rev,borderColor:'#43a047',backgroundColor:'rgba(67,160,71,.08)',borderWidth:2.5,fill:true,tension:.4,pointBackgroundColor:'#43a047',pointRadius:4,pointHoverRadius:6},
-      {label:'Farmer Earnings',data:d.earn,borderColor:'#f9a825',backgroundColor:'rgba(249,168,37,.06)',borderWidth:2.5,fill:true,tension:.4,pointBackgroundColor:'#f9a825',pointRadius:4,pointHoverRadius:6},
-      {label:'Profit',data:d.profit,borderColor:'#1565c0',backgroundColor:'rgba(21,101,192,.04)',borderWidth:2,fill:false,tension:.4,pointBackgroundColor:'#1565c0',pointRadius:4,pointHoverRadius:6,borderDash:[5,4]}
+      {label:'Farmer Earnings',data:d.earn,borderColor:'#f9a825',backgroundColor:'rgba(249,168,37,.06)',borderWidth:2.5,fill:true,tension:.4,pointBackgroundColor:'#f9a825',pointRadius:4,pointHoverRadius:6}
     ]},
     options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
       plugins:{legend:{display:false},tooltip:{...TT,callbacks:{label:c=>` ₹${c.parsed.y}L`}}},
@@ -1213,8 +1205,7 @@ function initRevenueCharts(){
     type:'line',
     data:{labels:d.labels,datasets:[
       {label:'Revenue',data:d.rev,borderColor:'#43a047',backgroundColor:'rgba(67,160,71,.08)',borderWidth:2.5,fill:true,tension:.4,pointRadius:4,pointHoverRadius:6,pointBackgroundColor:'#43a047'},
-      {label:'Payouts',data:d.earn,borderColor:'#f9a825',backgroundColor:'rgba(249,168,37,.06)',borderWidth:2.5,fill:true,tension:.4,pointRadius:4,pointHoverRadius:6,pointBackgroundColor:'#f9a825'},
-      {label:'Profit',data:d.profit,borderColor:'#1565c0',borderWidth:2,fill:false,tension:.4,pointRadius:4,pointHoverRadius:6,pointBackgroundColor:'#1565c0',borderDash:[5,4]}
+      {label:'Payouts',data:d.earn,borderColor:'#f9a825',backgroundColor:'rgba(249,168,37,.06)',borderWidth:2.5,fill:true,tension:.4,pointRadius:4,pointHoverRadius:6,pointBackgroundColor:'#f9a825'}
     ]},
     options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
       plugins:{legend:{display:false},tooltip:{...TT,callbacks:{label:c=>` ₹${c.parsed.y}L`}}},
